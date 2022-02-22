@@ -9,7 +9,12 @@
 Name: @product.Name <br/>
 Active: @product.IsActive <br/>
 Price: @product.Price <br/>
-Price: <input type="number" @bind-value="@product.Price" @bind-value:event="oninput" />
+This Product is: @(product.IsActive ? "Active" : "InActive") <br /><br />
+
+@*<input type="checkbox" @bind="@product.IsActive"  /> <br/>*@
+<input type="checkbox" @bind-value="@product.IsActive" checked="@product.IsActive"  /> <br/>
+Price: <input type="number" @bind-value="@product.Price" @bind-value:event="oninput" /> <br />
+@*Price: <input type="number" @bind="@product.Price" @bind:event="oninput" /> <br/> *@
 
 @code {
     Demo_Product product = new()
@@ -19,4 +24,10 @@ Price: <input type="number" @bind-value="@product.Price" @bind-value:event="onin
         IsActive = true,
         Price = 10.99
     };
+
+    //string? isProductActive; 
+    //public BindProp()
+    //{
+    //    isProductActive = (product.IsActive) ? "Active" : "InActive";
+    //}
 }
