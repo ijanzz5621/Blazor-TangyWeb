@@ -21,7 +21,8 @@
 @*<_AnotherChildComponent Placeholder="What is your name?" Required="true" MaxLength="10"></_AnotherChildComponent>*@
 
 Attribute Splatting
-<_AttributeSplatting InputAttributes="InputAttributesFromParent"></_AttributeSplatting>
+@*<_AttributeSplatting InputAttributes="InputAttributesFromParent" placeholder="Parent placeholder"></_AttributeSplatting>*@
+<_AttributeSplatting placeholder="Parent placeholder"></_AttributeSplatting>
 
 @*<_ChildComponent Title="This is a second child component">
 </_ChildComponent>*@
@@ -32,7 +33,7 @@ Attribute Splatting
     public Dictionary<string, object>? InputAttributesFromParent { get; set; } = new Dictionary<string, object>()
     {
         { "required", false },
-        { "placeholder", "What is yout name please....?" },
+        //{ "placeholder", "What is yout name please....?" },
         { "maxlength", 10 }
     };
 

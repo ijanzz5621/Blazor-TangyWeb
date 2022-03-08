@@ -1,7 +1,10 @@
 ﻿<div>
     <h4 class="text-primary pt-3">Another Child Component</h4>
-    <input id="nametemp" @attributes="InputAttributes" />
+    <input id="nametemp" placeholder="child place holder" @attributes="InputAttributes" />
 </div>
+
+@*The "@@attributes" must be placed at the end so that the parent component may override the child attribute settings*@
+
 @code {
 
     // Capture unmatched value = when parent component add additional parameter, it will catch it here and assign to this child component
@@ -9,7 +12,7 @@
     public Dictionary<string, object>? InputAttributes { get; set; } = new Dictionary<string, object>()
     {
         { "required", "required" },
-        { "placeholder", "Enter your name" },
+        //{ "placeholder", "Enter your name" },
         { "maxlength", 5 }
     };
 
