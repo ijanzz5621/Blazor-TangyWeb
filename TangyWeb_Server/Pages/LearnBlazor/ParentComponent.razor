@@ -4,17 +4,21 @@
 
 <h3>Parent Component</h3>
 
-<_ChildComponent Title="This title is passed as parameter from Parent Component" OnButtonClick="ShowMessage">
+<CascadingValue Value="@MessageForGrandChild" Name="message">
+    <CascadingValue Value="@LuckyNumber" Name="luckyNumber">
+        <_ChildComponent Title="This title is passed as parameter from Parent Component" OnButtonClick="ShowMessage">
 
-    <ChildContent>
-        Render fragment from Parent!!!
-    </ChildContent>
+            <ChildContent>
+                Render fragment from Parent!!!
+            </ChildContent>
 
-    <DangerChildContent>
-        This is a danger child content!!!
-    </DangerChildContent>
+            <DangerChildContent>
+                This is a danger child content!!!
+            </DangerChildContent>
 
-</_ChildComponent>
+        </_ChildComponent>
+    </CascadingValue>
+</CascadingValue>
 
 <p><b>@messageText</b></p>
 
@@ -28,6 +32,9 @@ Attribute Splatting
 </_ChildComponent>*@
 
 @code {
+    public string MessageForGrandChild = "This message is from you grand parent";
+    public string LuckyNumber = "7";
+
     public string messageText = ""; 
 
     public Dictionary<string, object>? InputAttributesFromParent { get; set; } = new Dictionary<string, object>()

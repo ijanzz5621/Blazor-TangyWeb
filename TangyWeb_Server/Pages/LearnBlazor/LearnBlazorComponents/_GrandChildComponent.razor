@@ -1,5 +1,12 @@
-﻿<h3>_GrandChildComponent</h3>
+﻿<h3>@MessageForGrandChild</h3>
+
+Lucky number is @LuckyNumberForGrandChild
 
 @code {
 
+    [CascadingParameter(Name = "message")]
+    public string? MessageForGrandChild  { get; set; }
+
+    [CascadingParameter(Name = "luckyNumber")]
+    public string? LuckyNumberForGrandChild  { get; set; }
 }
